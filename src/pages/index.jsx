@@ -5,7 +5,7 @@ const Index = () => {
     return (
         <>
             <MainHeader />
-            <p className={styles.myParagraph}>Paragraph!</p>
+            <p className={styles.myParagraph}>  Welcome to the events page!</p>
         </>
     );
 };
