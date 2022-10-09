@@ -12,17 +12,25 @@ function Index() {
     { field: 'name', headerName: 'Name', width: 130 },
     { field: 'description', headerName: 'Description', width: 800 },
     {
-      field: 'starttime',
+      field: 'startTime',
       headerName: 'Start Time',
       type: 'number',
       width: 90,
     },
     {
-      field: 'endtime',
+      field: 'endTime',
       headerName: 'End Time',
       type: 'number',
       width: 90,
     },
+    {
+    field: 'points',
+    headerName: 'Points',
+    type: 'number',
+    width: 90,
+  },
+  { field: 'sponsor', headerName: 'Sponsor', width: 800 },
+
     { field: 'eventType', headerName: 'Event Type', width: 130 },
     { field: 'async', headerName: 'Is this event asynchronous?', width: 130 },
 
