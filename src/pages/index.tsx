@@ -29,10 +29,10 @@ function Index() {
     type: 'number',
     width: 90,
   },
-  { field: 'sponsor', headerName: '', width: 800 },
+  { field: 'sponsor', headerName: 'Sponsor', width: 800 },
 
     { field: 'eventType', headerName: 'Event Type', width: 130 },
-    { field: 'async', headerName: 'Is this event asynchronous?', width: 130 },
+    { field: 'isAsync', headerName: 'Is this event asynchronous?', width: 130 },
 
   ];
   
