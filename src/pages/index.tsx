@@ -29,7 +29,7 @@ function Index() {
     type: 'number',
     width: 90,
   },
-  { field: 'sponsor', headerName: 'Sponsor', width: 800 },
+  { field: 'sponsor', headerName: '', width: 800 },
 
     { field: 'eventType', headerName: 'Event Type', width: 130 },
     { field: 'async', headerName: 'Is this event asynchronous?', width: 130 },
@@ -58,12 +58,12 @@ function Index() {
             <>
                 <MainHeader />
                 <p className={styles.myParagraph}>  Welcome to the events page!</p> 
-                <div style={{ height: 400, width: '100%' }}>
+                <div style={{ height: 800, width: '100%' }}>
       <DataGrid
        getRowId={(row) => row.id}
         rows={data}
         columns={columns}
-        pageSize={5}
+        pageSize={10}
         rowsPerPageOptions={[5]}
         checkboxSelection
       />
