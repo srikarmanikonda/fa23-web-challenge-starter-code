@@ -8,7 +8,6 @@ import { json } from "stream/consumers";
 function Index() {
 
   const columns: GridColDef[] = [
-    { field: 'id',  headerName: 'ID', width: 70 },
     { field: 'name', headerName: 'Name', width: 130 },
     { field: 'description', headerName: 'Description', width: 800 },
     {
@@ -27,9 +26,9 @@ function Index() {
     field: 'points',
     headerName: 'Points',
     type: 'number',
-    width: 90,
+    width: 70,
   },
-  { field: 'sponsor', headerName: 'Sponsor', width: 800 },
+  { field: 'sponsor', headerName: 'Sponsor', width: 130 },
 
     { field: 'eventType', headerName: 'Event Type', width: 130 },
     { field: 'isAsync', headerName: 'Is this event asynchronous?', width: 130 },
@@ -58,12 +57,12 @@ function Index() {
             <>
                 <MainHeader />
                 <p className={styles.myParagraph}>  Welcome to the events page!</p> 
-                <div style={{ height: 800, width: '100%' }}>
+                <div style={{ height: 900, width: '100%' }}>
       <DataGrid
        getRowId={(row) => row.id}
         rows={data}
         columns={columns}
-        pageSize={10}
+        pageSize={15}
         rowsPerPageOptions={[5]}
         checkboxSelection
       />
