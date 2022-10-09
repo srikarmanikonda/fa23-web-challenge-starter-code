@@ -2,34 +2,70 @@ import React, {useState, useEffect} from "react";
 import MainHeader from "../components/main-header";
 import styles from "../styles/index.module.scss";
 import {IUser} from "../components/Iuser";
-import Table from "../components/EventList";
 import axios from "axios";
+import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { json } from "stream/consumers";
 function Index() {
-        const [data, setData] = useState<IUser[]>([]);
-      
-        const fetchData = async () => {
-          const uri = 'https://api.hackillinois.org/event/';
-          const response = await axios.get<IUser[]>(uri);
-          setData(response.data);
 
-        };
+  const columns: GridColDef[] = [
+    { field: 'id',  headerName: 'ID', width: 70 },
+    { field: 'name', headerName: 'Name', width: 130 },
+    { field: 'description', headerName: 'Description', width: 800 },
+    {
+      field: 'starttime',
+      headerName: 'Start Time',
+      type: 'number',
+      width: 90,
+    },
+    {
+      field: 'endtime',
+      headerName: 'End Time',
+      type: 'number',
+      width: 90,
+    },
+    { field: 'eventType', headerName: 'Event Type', width: 130 },
+    { field: 'async', headerName: 'Is this event asynchronous?', width: 130 },
+
+  ];
+  
+  const rows = [];
+        const [data, setData] = useState([])
+
+      
+
         //fetch the api here.
         useEffect(() => {
-          fetchData();
-        }, []);
+          var apiurl = "https://api.hackillinois.org/event/";
+        axios
+          .get(apiurl)
+          .then((response) => response.data.events)
+          .then((data) => {
+            setData(data);
+          });
+      }, []);
+
+    
+
         return (
             <>
                 <MainHeader />
-                <p className={styles.myParagraph}>  Welcome to the events page!</p>
-                <Table data = {data}/> 
+                <p className={styles.myParagraph}>  Welcome to the events page!</p> 
+                <div style={{ height: 400, width: '100%' }}>
+      <DataGrid
+       getRowId={(row) => row.id}
+        rows={data}
+        columns={columns}
+        pageSize={5}
+        rowsPerPageOptions={[5]}
+        checkboxSelection
+      />
+    </div>
+          
             </>
             
     
         );
     ;
-}  
-      
-
-   
+}
 
 export default Index;
