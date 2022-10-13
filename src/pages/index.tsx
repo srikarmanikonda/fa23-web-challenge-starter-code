@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from "react";
+
 import MainHeader from "../components/main-header";
 import styles from "../styles/index.module.scss";
 import {IUser} from "../components/Iuser";
 import axios from "axios";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
-import { json } from "stream/consumers";
+import logo from './logo.png'
 function Index() {
 
   const columns: GridColDef[] = [
@@ -57,7 +58,8 @@ function Index() {
             <>
                 <MainHeader />
                 <p className={styles.myParagraph}>  Welcome to the events page!</p> 
-                <div style={{ height: 900, width: '100%' }}>
+                <img src = {"logo.png"}  alt = "Hackillinois logo"/>
+                <div style={{ height: 800, width: '100%' }}>
       <DataGrid
        getRowId={(row) => row.id}
         rows={data}
